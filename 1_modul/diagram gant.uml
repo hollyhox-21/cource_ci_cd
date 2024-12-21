@@ -1,0 +1,93 @@
+@startgantt
+
+<style>
+ganttDiagram {
+  task {
+    BackGroundColor LightBlue
+    LineColor Blue
+    unstarted {
+      BackGroundColor LightGray
+      LineColor Gray
+    }
+  }
+}
+</style>
+
+project starts 2024-01-01
+
+-- Анализ требований --
+[Сбор требований] as [REQ1] requires 7 days
+[Анализ рынка] as [REQ2] requires 7 days
+[Определение функционала] as [REQ3] requires 7 days
+[Создание ТЗ] as [REQ4] requires 7 days
+
+[REQ2] starts at [REQ1]'s end
+[REQ3] starts at [REQ2]'s end
+[REQ4] starts at [REQ3]'s end
+
+[REQ1] is 100% complete
+[REQ2] is 100% complete
+[REQ3] is 80% complete
+[REQ4] is 50% complete
+
+-- Проектирование --
+[Разработка архитектуры] as [DES1] requires 14 days
+[UI/UX дизайн] as [DES2] requires 14 days
+[Проектирование БД] as [DES3] requires 7 days
+[Создание прототипов] as [DES4] requires 7 days
+
+[DES1] starts at [REQ4]'s end
+[DES2] starts at [DES1]'s end
+[DES3] starts at [DES2]'s end
+[DES4] starts at [DES3]'s end
+
+[DES1] is 30% complete
+[DES2] is 0% complete
+[DES3] is 0% complete
+[DES4] is 0% complete
+
+-- Разработка --
+[Frontend разработка] as [DEV1] requires 84 days
+[Backend разработка] as [DEV2] requires 84 days
+[Интеграция API] as [DEV3] requires 28 days
+[Разработка БД] as [DEV4] requires 21 days
+
+[DEV1] starts at [DES4]'s end
+[DEV2] starts at [DES4]'s end
+[DEV3] starts at [DEV2]'s start
+[DEV4] starts at [DEV2]'s start
+
+[DEV1] is 0% complete
+[DEV2] is 0% complete
+[DEV3] is 0% complete
+[DEV4] is 0% complete
+
+-- Тестирование --
+[Модульное тестирование] as [TEST1] requires 7 days
+[Интеграционное тестирование] as [TEST2] requires 7 days
+[User Acceptance Testing] as [TEST3] requires 7 days
+
+[TEST1] starts at [DEV1]'s end
+[TEST2] starts at [TEST1]'s end
+[TEST3] starts at [TEST2]'s end
+
+[TEST1] is 0% complete
+[TEST2] is 0% complete
+[TEST3] is 0% complete
+
+-- Внедрение --
+[Развертывание] as [IMPL1] requires 3 days
+[Публикация] as [IMPL2] requires 4 days
+
+[IMPL1] starts at [TEST3]'s end
+[IMPL2] starts at [IMPL1]'s end
+
+[IMPL1] is 0% complete
+[IMPL2] is 0% complete
+
+-- Поддержка --
+[Мониторинг и поддержка] as [MAINT] requires 14 days
+[MAINT] starts at [IMPL2]'s end
+[MAINT] is 0% complete
+
+@endgantt
